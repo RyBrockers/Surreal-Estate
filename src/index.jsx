@@ -2,13 +2,13 @@ import 'raf/polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import App from './app';
-import NavBar from '../src/NavBar';
+import { BrowserRouter } from 'react-router-dom';
 
-const app = (
-  <div className="my-div">
-    <App />
-    <NavBar />
-  </div>
+
+render(
+  (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  ), document.getElementById('root')
 );
-
-render(app, NavBar, document.getElementById('root'));

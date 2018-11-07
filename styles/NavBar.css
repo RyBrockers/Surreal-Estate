@@ -1,5 +1,36 @@
 .NavBar {
 
-  border-bottom: grey;
-  background-color: white;
+  border-bottom: 20px solid  #ccccff;
+  background-color: #e6ffff;
+  padding: 10px;
+  margin: 0 0 5px 0;
 }
+
+.button {
+  cursor: help;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 5px 0 5px;
+  font-family: 'Muli:800', sans-serif;
+  box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, .2);
+  font-size: 15px;
+  border: 1px solid #000;
+
+}
+
+.textlogo {
+  display: inline-block;
+}
+
+button:hover {
+  background-color:  #ffffe6;
+  }
+
+  .item {
+    margin: 0 0 0 30px;
+    list-style-type: none;
+    font-size: 40px;
+    font-family: 'Muli:800', sans-serif;
+
+
+  }

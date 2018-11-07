@@ -1,0 +1,66 @@
+.AddProperty {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  padding: none;
+}
+
+.AddButton {
+  font-family: 'Muli:800', sans-serif;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #000;
+  margin: 10px 0px 0px 0px;
+  display: block;
+
+}
+
+.submitform {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  background-color: #ccccff;
+  padding: 100px 0px 0px 0px;
+  border-radius: 15px;
+  border: 2px solid #000;
+}
+
+.typeinput {
+  padding: 20px 20px 0px 20px;
+}
+
+.cityinput {
+  padding: 20px 20px 0px 20px;
+}
+
+.bedroominput {
+  padding: 20px 20px 0px 20px;
+}
+
+.bathroominput {
+  padding: 20px 20px 0px 20px;
+}
+
+.priceinput {
+  padding: 20px 20px 0px 20px;
+}
+
+.priceinput {
+  padding: 20px 20px 0px 20px;
+}
+
+.emailinput {
+  padding: 20px 20px 0px 20px;
+  margin: 60px 0px 0px 0px;
+}
+
+
