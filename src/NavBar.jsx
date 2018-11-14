@@ -11,7 +11,7 @@ const NavBar = () => {
       </div>
       <ul className="nav">
         <li className="item">Surreal Estate</li>
-        <Link to="/" className="item"><button className="button">View Properties</button></Link>
+        <Link to="/" className="item"><button className="button">View All Properties</button></Link>
         <Link to="/add-property" className="item"><button className="button">Add Property</button></Link>
 
       </ul>

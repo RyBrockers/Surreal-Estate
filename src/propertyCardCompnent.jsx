@@ -10,9 +10,9 @@ class PropertyCard extends React.Component {
       title: '',
       type: '',
       city: '',
-      bedrooms: 0,
-      bathrooms: 0,
-      price: 0,
+      bedrooms: 1,
+      bathrooms: 1,
+      price: 50000,
       email: '',
     };
   }

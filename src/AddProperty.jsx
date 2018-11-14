@@ -90,10 +90,11 @@ class AddProperty extends React.Component {
               <label>City: </label>
               <select name="city" value={this.state.fields.city} onChange={this.handleFieldChange}>
                 <option value="Manchester">Manchester</option>
-                <option value="Leeds">Leeds</option>
-                <option value="Sheffield">Sheffield</option>
+                <option value="London">London</option>
+                <option value="Stoke">Stoke</option>
                 <option value="Liverpool">Liverpool</option>
                 <option value="Wigan">Wigan</option>
+
 
               </select>
             </div>
