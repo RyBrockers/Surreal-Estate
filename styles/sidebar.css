@@ -1,9 +1,17 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
 .searchbutton {
   font-size: 15px;
   padding: 10px;
   border: 2px solid #000;
   border-radius: 15px;
   margin: 0px 10px 0px 0px;
+  background-color:  #e6ffe6;
+  display: inline-block;
 }
 
 .filtercityicon {
@@ -15,4 +23,13 @@
 
 .pricebutton {
   text-decoration: none;
+  padding: 10x;
+  font-size: 15px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin: 0px 0px 0px 20px;
+}
+
+.searchprice {
+  margin: 0px 0px 0px 25px;
 }

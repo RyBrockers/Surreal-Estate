@@ -5,6 +5,7 @@ import PropertyCard from '../src/propertyCardCompnent';
 import Axios from 'axios';
 import Alert from '../src/alert';
 import Sidebar from '../src/sidebar';
+import qs from 'qs';
 
 
 class Properties extends React.Component {
@@ -14,6 +15,7 @@ class Properties extends React.Component {
       properties: [],
       isError: false,
       alertMessage: '',
+      search: '',
     };
   }
 
@@ -37,11 +39,49 @@ class Properties extends React.Component {
     }
   }
 
+  buildQueryString = (operation, valueObj) => {
+    const { location: { search } } = this.props;
+
+    const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
+
+    const newQueryParams = {
+      ...currentQueryParams,
+      [operation]: JSON.stringify({
+        ...JSON.parse(currentQueryParams[operation] || '{}'),
+        ...valueObj,
+      }),
+    };
+
+    return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
+  };
+
+
+  handleSearch = event => {
+    event.preventDefault();
+    const { search } = this.state;
+    const newQueryString = this.buildQueryString('query', { title: { $regex: search } });
+    const { history } = this.props;
+    history.push(newQueryString);
+  };
+
 
   render() {
     return (
 
+
       <div className="properties">
+        <div className="searchform">
+          <form onSubmit={this.handleSearch}>
+            Search By Poperty Type:
+            <input
+              type="text"
+              value={this.state.search}
+              onChange={event => this.setState({ search: event.target.value })}
+            />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+
 
         <Sidebar />
 

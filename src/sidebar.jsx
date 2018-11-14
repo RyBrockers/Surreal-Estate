@@ -18,9 +18,10 @@ class Sidebar extends React.Component {
     const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
     const newQueryParams = {
       ...currentQueryParams,
-
-      [operation]: JSON.stringify(valueObj),
-
+      [operation]: JSON.stringify({
+        ...JSON.parse(currentQueryParams[operation] || '{}'),
+        ...valueObj,
+      }),
     };
 
     return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
@@ -30,21 +31,24 @@ class Sidebar extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div>
-          <div className="filtercityicon"><h1>Filter By City: </h1> </div>
-          <Link to={this.buildQueryString('query', { city: 'Manchester' })}><button className="searchbutton">Manchester</button></Link>
-          <Link to={this.buildQueryString('query', { city: 'London' })}><button className="searchbutton">London</button></Link>
-          <Link to={this.buildQueryString('query', { city: 'Stoke' })}><button className="searchbutton">Stoke</button></Link>
-          <Link to={this.buildQueryString('query', { city: 'Liverpool' })}><button className="searchbutton">Liverpool</button></Link>
-          <Link to={this.buildQueryString('query', { city: 'Wigan' })}><button className="searchbutton">Wigan</button></Link>
+        <div className="siadebar">
+          <div>
+            <div className="filtercityicon"><h1>Filter By City: </h1> </div>
+            <Link to={this.buildQueryString('query', { city: 'Manchester' })}><button className="searchbutton">Manchester</button></Link>
+            <Link to={this.buildQueryString('query', { city: 'London' })}><button className="searchbutton">London</button></Link>
+            <Link to={this.buildQueryString('query', { city: 'Stoke' })}><button className="searchbutton">Stoke</button></Link>
+            <Link to={this.buildQueryString('query', { city: 'Liverpool' })}><button className="searchbutton">Liverpool</button></Link>
+            <Link to={this.buildQueryString('query', { city: 'Wigan' })}><button className="searchbutton">Wigan</button></Link>
+          </div>
+
+          <div className="searchbyprice">
+            <div className="searchprice"><h1>Search by price</h1> </div>
+            <Link to={this.buildQueryString('sort', { price: -1 })}><button className="pricebutton">Price Descending</button></Link>
+            <Link to={this.buildQueryString('sort', { price: 1 })}><button className="pricebutton">Price Assending</button></Link>
+
+          </div>
         </div>
 
-        <div className="searchbyprice">
-          <div className="searchprice"><h1>Search by price</h1> </div>
-          <Link to={this.buildQueryString('sort', { price: -1 })}><button className="pricebutton">Price Descending</button></Link>
-          <Link to={this.buildQueryString('sort', { price: 1 })}><button>Price Assending</button></Link>
-
-        </div>
       </React.Fragment>
 
 
