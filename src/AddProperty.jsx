@@ -1,6 +1,8 @@
+/* eslint-disable max-len */
 import React from 'react';
 import '../styles/AddProperty.css';
-import axios from 'axios';
+import Axios from 'axios';
+import Alert from './alert';
 
 class AddProperty extends React.Component {
   constructor(props) {
@@ -10,9 +12,9 @@ class AddProperty extends React.Component {
         title: '',
         type: '',
         city: '',
-        bedrooms: 1,
-        bathrooms: 1,
-        price: 1,
+        bedrooms: 0,
+        bathrooms: 0,
+        price: 0,
         email: '',
       },
       alertMessage: '',
@@ -22,26 +24,24 @@ class AddProperty extends React.Component {
   }
 
   handleAddProperty = (event) => {
-    this.setState(
-      {
-        alertMessage: '',
-        isSuccess: false,
+    event.preventDefault();
+    this.setState({
+      alertMessage: '',
+      isSuccess: true,
+      isError: false,
+    });
+    Axios.post('http://localhost:3000/api/v1/PropertyListing', this.state.fields)
+      .then(() => this.setState({
+        isSuccess: true,
         isError: false,
-
-      },
-
-      axios.post('http://localhost:3000/api/v1/PropertyListing', {
-        title: this.state.fields.title,
-        type: this.state.fields.type,
-        bedrooms: this.state.fields.bedrooms,
-        bathrooms: this.state.fields.bathrooms,
-        price: this.state.fields.price,
-        city: this.state.fields.city,
-        email: this.state.fields.email,
-      })
-    );
+        alertMessage: 'Property added successfully.',
+      }))
+      .catch(() => this.setState({
+        isSuccess: false,
+        isError: true,
+        alertMessage: 'Server error. Please try again later.',
+      }));
   };
-
 
   handleFieldChange = (event) => {
     this.setState({
@@ -55,11 +55,21 @@ class AddProperty extends React.Component {
 
   render() {
     return (
+
       <div className="AddProperty">
+
         <h1 className="title">Add A Property</h1>
+        <div className="Alert.success">
+          {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
+        </div>
+        <div>
+          {this.state.isError && <Alert message={this.state.alertMessage} />}
+        </div>
 
         <div className="submitform">
+
           <form onSubmit={this.handleAddProperty}>
+
             <label>Property Description: </label>
 
             <input name="title" type="text" value={this.state.fields.title} onChange={this.handleFieldChange} />
@@ -83,6 +93,8 @@ class AddProperty extends React.Component {
                 <option value="Leeds">Leeds</option>
                 <option value="Sheffield">Sheffield</option>
                 <option value="Liverpool">Liverpool</option>
+                <option value="Wigan">Wigan</option>
+
               </select>
             </div>
 
@@ -107,11 +119,11 @@ class AddProperty extends React.Component {
             </div>
             <div className="priceinput">
               <label>Price: </label>
-              <select name="city" value={this.state.fields.price} onChange={this.handleFieldChange}>
-                <option value="£50,000-£100,00">£50,000-£100,000</option>
-                <option value="£100,000-£150,000">£100,000-£150,000</option>
-                <option value="£150,000-£200,000">£150,000-£200,000</option>
-                <option value="£200,000-£250,000">£200,000-£250,000</option>
+              <select name="price" value={this.state.fields.price} onChange={this.handleFieldChange}>
+                <option value={50000}>50000</option>
+                <option value={100000}>100000</option>
+                <option value={150000}>150000</option>
+                <option value={200000}>200000</option>
               </select>
             </div>
             <div className="emailinput">
@@ -124,7 +136,9 @@ class AddProperty extends React.Component {
 
             <button className="AddButton" type="submit">Submit/Add</button>
           </form>
+
         </div>
+
       </div>
     );
   }

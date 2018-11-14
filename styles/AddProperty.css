@@ -4,6 +4,9 @@
   align-items: center;
   flex-direction: column;
   margin-top: 50px;
+  font-size: 25px;
+
+
 
 }
 
@@ -11,6 +14,13 @@
   display: flex;
   justify-content: flex-start;
   padding: none;
+  font-family: 'Muli:800', sans-serif;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #ccccff;
+  box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, .2);
+
 }
 
 .AddButton {
@@ -18,8 +28,10 @@
   padding: 15px;
   border-radius: 10px;
   border: 2px solid #000;
-  margin: 10px 0px 0px 0px;
+  margin: 50px 0px 0px 0px;
   display: block;
+  box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, .2);
+
 
 }
 
@@ -28,30 +40,44 @@
   justify-content: center;
   width: 500px;
   height: 500px;
-  background-color: #ccccff;
-  padding: 100px 0px 0px 0px;
+  background-color: #666666;
+  padding: 50px;
   border-radius: 15px;
   border: 2px solid #000;
+  font-size: 25px;
+  box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, .2);
+  
+
+
 }
 
 .typeinput {
   padding: 20px 20px 0px 20px;
+  font-size: 25px;
+
 }
 
 .cityinput {
   padding: 20px 20px 0px 20px;
+  font-size: 25px;
+
 }
 
 .bedroominput {
   padding: 20px 20px 0px 20px;
+  font-size: 25px;
 }
 
 .bathroominput {
   padding: 20px 20px 0px 20px;
+  font-size: 25px;
+
 }
 
 .priceinput {
   padding: 20px 20px 0px 20px;
+  font-size: 25px;
+
 }
 
 .priceinput {
