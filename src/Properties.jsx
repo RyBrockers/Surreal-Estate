@@ -17,6 +17,7 @@ class Properties extends React.Component {
     };
   }
 
+
   componentDidMount() {
     Axios.get('http://localhost:3000/api/v1/PropertyListing', this.state.fields)
       .then(response => this.setState({ properties: response.data }))
@@ -35,6 +36,7 @@ class Properties extends React.Component {
         .catch(err => console.error(err));
     }
   }
+
 
   render() {
     return (

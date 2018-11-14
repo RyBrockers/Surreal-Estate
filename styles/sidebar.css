@@ -5,3 +5,14 @@
   border-radius: 15px;
   margin: 0px 10px 0px 0px;
 }
+
+.filtercityicon {
+  display: inline-block;
+  margin: 0px 0px 0px 20px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.pricebutton {
+  text-decoration: none;
+}
