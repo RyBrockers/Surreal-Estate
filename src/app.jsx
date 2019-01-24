@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import { Switch, Route } from 'react-router';
 
 import '../styles/app.css';
 import { Switch, Route } from 'react-router';
